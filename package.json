@@ -1,0 +1,19 @@
+{
+  "name": "humansbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ap.js",
+  "scripts": {
+    "test": "nodemon src/bot.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.2.4",
+    "node-telegram-bot-api": "^0.57.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
