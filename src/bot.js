@@ -1,7 +1,5 @@
-const { type } = require('express/lib/response');
-const { clear } = require('forever/lib/forever/cli');
 const TelegramBot = require('node-telegram-bot-api');
-const token = '5104424433:AAHqSHJWUJvAvGlQV4A4hBMcFarH6DZAPGY';
+const token = '5520485548:AAEfXoTQLG0nDPEhA1pBnv_B9NsqF8PaHRY';
 const bot = new TelegramBot(token, {polling: true});
 let setINT 
 bot.on('text', msg => {
@@ -71,59 +69,6 @@ function random(n, msg){
     return arr2
 }
 
-let arr = [
-    [
-      { text: '11', callback_data: '0' },
-      { text: '7', callback_data: '1' },
-      { text: '9', callback_data: '2' },
-      { text: '2', callback_data: '3' }
-    ],
-    [
-      { text: '5', callback_data: '4' },
-      { text: '4', callback_data: '5' },
-      { text: '10', callback_data: '6' },
-      { text: '6', callback_data: '7' }
-    ],
-    [
-      { text: '15', callback_data: '8' },
-      { text: '8', callback_data: '9' },
-      { text: '12', callback_data: '10' },
-      { text: '1', callback_data: '11' }
-    ],
-    [
-      { text: '14', callback_data: '12' },
-      { text: '3', callback_data: '13' },
-      { text: '13', callback_data: '14' },
-      { text: '⭕️', callback_data: '15' }
-    ]
-]
-let arr1 = [
-    [
-      { text: '1', callback_data: '0' },
-      { text: '2', callback_data: '1' },
-      { text: '3', callback_data: '2' },
-      { text: '4', callback_data: '3' }
-    ],
-    [
-      { text: '5', callback_data: '4' },
-      { text: '6', callback_data: '5' },
-      { text: '7', callback_data: '6' },
-      { text: '8', callback_data: '7' }
-    ],
-    [
-      { text: '9', callback_data: '8' },
-      { text: '10', callback_data: '9' },
-      { text: '11', callback_data: '10' },
-      { text: '12', callback_data: '11' }
-    ],
-    [
-      { text: '13', callback_data: '12' },
-      { text: '14', callback_data: '13' },
-      { text: '15', callback_data: '14' },
-      { text: '⭕️', callback_data: '15' }
-    ]
-]
-
 function chek (array,index){
     let key = check(array,index)[0]
     let arr = array.flat()
@@ -139,7 +84,10 @@ function chek (array,index){
     })
     let a = arr.map((el, index) => el.text == index + 1)
     const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
-    if(countOccurrences(a,true) == 15 ) return true
+    if(countOccurrences(a,true) == 15 ) {
+        clearInterval(setINT)
+        return true
+    }
     let arr1 = []
     let arr2 = []
     arr.map((el, index1) => {
@@ -256,30 +204,3 @@ function check(array, index){
     }
       
 }
-
-
-
-// 0 >> 1 4 
-// 1 >> 0 2 5 
-// 2 >> 1 6 3   
-// 3 >> 2 7 
-// 4 >> 0, 5, 8 
-// 5 >> 1, 4, 9, 6 
-// 6 >> 2, 5, 7, 10
-// 7 >> 3, 6, 11 
-// 8 >> 4, 9, 12 
-// 9 >> 5, 8, 13, 10
-// 10 >> 9, 6, 11, 14
-// 11 >> 10, 7, 15
-// 12 >> 8, 13
-// 13 >> 12, 9, 14 
-// 14 >> 13, 10, 15
-// 15 >> 14, 11
-  
-// 0   1   2   3   
-
-// 4   5   6   7   
-
-// 8   9   10  11  
-
-// 12  13  14  15
